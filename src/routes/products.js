@@ -2,6 +2,9 @@
 const express = require('express');
 const router = express.Router();
 
+//*** Multer ***//
+const multerController = require('../controllers/multerController');
+
 // ************ Controller Require ************
 const productsController = require('../controllers/productsController');
 
@@ -10,19 +13,16 @@ router.get('/', productsController.index);
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create/', productsController.create); 
-router.post('/', productsController.store); 
-
+router.post('/', multerController.single('image-new-product'), productsController.store); 
 
 /*** GET ONE PRODUCT ***/ 
 router.get('/:id/', productsController.detail); 
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/:id/edit', productsController.edit); 
-router.put('/:id', productsController.update); 
-
+router.put('/:id', productsController.update);
 
 /*** DELETE ONE PRODUCT***/ 
 router.delete('/:id', productsController.destroy); 
-
 
 module.exports = router;

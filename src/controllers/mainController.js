@@ -17,7 +17,7 @@ const controller = {
 		res.render('index', categoriasIndex);
 	},
 	search: (req, res) => {
-		// Do the magic
+		const productoBuscado= products.find(product=> product.name == req.body);
 	},
 };
 

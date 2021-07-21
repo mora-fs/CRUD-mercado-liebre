@@ -27,7 +27,9 @@
 						</figure>
 						<article class="product-box_data">
 							<h2><%=visited.price%> $</h2>
-							<span><%=visited.discount%>% OFF</span>
+							<% if (visited.discount>0) { %>
+								<span><%=visited.discount%>% OFF</span>
+							<% } %> 
 							<p><%=visited.name%></p>
 							<i class="fas fa-truck"></i>
 						</article>
